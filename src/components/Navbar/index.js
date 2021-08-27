@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function index() {
   return (
@@ -8,6 +9,7 @@ export default function index() {
           <a className="navbar-brand" href="#">
             .amarbazarr
           </a>
+
           <button
             className="navbar-toggler"
             type="button"

@@ -20,3 +20,6 @@ h1 {
   font-size: 18px !important;
   text-align: left;
 }
+.img-fluid {
+  height: 200px !important;
+}
