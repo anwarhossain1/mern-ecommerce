@@ -6,9 +6,11 @@ export default function index() {
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            .amarbazarr
-          </a>
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <a className="navbar-brand" href="#">
+              .amarbazarr
+            </a>
+          </Link>
 
           <button
             className="navbar-toggler"

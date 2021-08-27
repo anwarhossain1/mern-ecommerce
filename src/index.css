@@ -19,6 +19,8 @@ code {
 h1 {
   font-size: 18px !important;
   text-align: left;
+  color: black;
+  text-decoration: none;
 }
 .img-fluid {
   height: 200px !important;
