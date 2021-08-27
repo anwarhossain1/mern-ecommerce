@@ -23,3 +23,9 @@ h1 {
 .img-fluid {
   height: 200px !important;
 }
+.card {
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px !important;
+}
+.desImage {
+  height: 400px !important;
+}

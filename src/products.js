@@ -27,7 +27,7 @@ const products = [
     id: 3,
     name: "realme C20A - 5000 mAh battery",
     rating: 5,
-    price: 10000,
+    price: 5000,
     reviews: [],
     category: "mobiles",
     image:
