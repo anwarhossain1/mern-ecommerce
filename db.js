@@ -15,7 +15,7 @@ dbConnect.on("error", () => {
 });
 
 dbConnect.on("connected", () => {
-  console.log("Connected");
+  console.log("MongoDB has been Connected");
 });
 
 module.exports = mongoose;

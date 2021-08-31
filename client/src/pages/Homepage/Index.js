@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
-//import products from "../../products";
 import Product from "../../components/Product/index";
 export default function Index() {
   const [products, setProducts] = useState([]);
