@@ -4,7 +4,7 @@ import Rating from "react-rating";
 
 export default function index({ product }) {
   return (
-    <div className="col-md-3 m-5 p-2 card ">
+    <div>
       <Link to={`product/${product.id}`} style={{ textDecoration: "none" }}>
         <div>
           <img alt="image" src={product.image} className="img-fluid" />
