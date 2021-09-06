@@ -1,7 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
-export default function index() {
+export default function Index() {
+  const dispatch = useDispatch();
+  const addtocartreducer = useSelector((state) => state.addToCartReducer);
+  const { cartItems } = addtocartreducer;
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -33,6 +37,8 @@ export default function index() {
               <li className="nav-item">
                 <a className="nav-link" href="#">
                   <i class="fas fa-cart-plus"></i>
+                  {cartItems.length}
+                  {}
                 </a>
               </li>
             </ul>

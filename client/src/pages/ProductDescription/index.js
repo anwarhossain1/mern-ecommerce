@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../app/actions/cartActions";
 import { getProductById } from "../../app/actions/productActions";
 
 export default function Index({ match }) {
   const productId = match.params.id; //match has been used here as a props by which getting the id(this should be exactly what has been given into routes) from the parameters
   //const product = products.find((product) => product.id == productId);
   const dispatch = useDispatch();
+  const [quantity, setQuantity] = useState(1);
   const getproductbyidstate = useSelector(
     (state) => state.getProductByIdReducer
   );
   const { loading, product, error } = getproductbyidstate;
   console.log("hello");
+  const cartHandler = () => {
+    dispatch(addToCart(product, quantity));
+  };
+
   useEffect(() => {
     dispatch(getProductById(productId));
   }, []);
@@ -34,14 +40,19 @@ export default function Index({ match }) {
               <h1>Price: {product.price}/-</h1>
               <hr />
               <h1>Select Quantity</h1>
-              <select>
+              <select
+                value={quantity}
+                onChange={(e) => setQuantity(e.target.value)}
+              >
                 {[...Array(product.countInStock).keys()].map((value, index) => {
                   //here object.countInstock has been putt into an array and by using that array method, itarated all the values.
                   return <option value={index + 1}>{value + 1}</option>;
                 })}
               </select>
               <hr />
-              <button className="btn btn-dark">Add To Cart</button>
+              <button className="btn btn-dark" onClick={cartHandler}>
+                Add To Cart
+              </button>
             </div>
           </div>
         </div>
