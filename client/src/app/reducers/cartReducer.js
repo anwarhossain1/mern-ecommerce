@@ -7,8 +7,8 @@ export const addToCartReducer = (state = { cartItems: [] }, action) => {
       if (alreadyExistitem) {
         return {
           ...state,
-          cartItems: state.cartItems.map((item) =>
-            item._id === action.payload._id ? action.payload : item
+          cartItems: state.cartItems.map(
+            (item) => (item._id === action.payload._id ? action.payload : item) //for avoiding repitation of cart, old one's data will be replaced
           ),
         };
       } else {

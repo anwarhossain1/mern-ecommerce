@@ -13,11 +13,20 @@ const finalReducer = combineReducers({
   getProductByIdReducer: getProductByIdReducer,
   addToCartReducer: addToCartReducer,
 });
+const cartItems = localStorage.getItem("cartItems")
+  ? JSON.parse(localStorage.getItem("cartItems"))
+  : [];
+const initialState = {
+  addToCartReducer: {
+    cartItems: cartItems,
+  },
+};
 const composeEnhancers = composeWithDevTools({
   // Specify here name, actionsBlacklist, actionsCreators and other options
 });
 const store = createStore(
   finalReducer,
+  initialState,
   composeEnhancers(applyMiddleware(thunk))
 );
 
