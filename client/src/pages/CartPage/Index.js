@@ -6,6 +6,11 @@ const Index = () => {
   const cartreducerstate = useSelector((state) => state.addToCartReducer);
   const dispatch = useDispatch();
   const { cartItems } = cartreducerstate;
+
+  const subtotal = cartItems.reduce(
+    (acc, item) => acc + item.price * item.quantity, //array.reduce method has been used for calculation
+    0
+  );
   return (
     <div>
       <div className="row mt-5 justify-content-center">
@@ -53,6 +58,14 @@ const Index = () => {
               })}
             </tbody>
           </table>
+          <br />
+          <hr />
+          <div>
+            <h2>Sub Total:- ৳ {subtotal}/-</h2>
+            <button className="btn btn-dark" style={{ width: "200px" }}>
+              Pay Now
+            </button>
+          </div>
         </div>
       </div>
     </div>
