@@ -39,7 +39,7 @@ export default function Index() {
         ) : (
           products.map((product) => {
             return (
-              <div className="col-md-3 m-5 p-2 card ">
+              <div className="col-md-3 m-5 p-2 card" key={product._id}>
                 <Product product={product} />;
               </div>
             );

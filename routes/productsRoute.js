@@ -12,4 +12,13 @@ router.get("/getallproducts", (req, res) => {
     }
   });
 });
+router.post("/getproductbyid", (req, res) => {
+  Product.find({ _id: req.body.productid }, (error, docs) => {
+    if (!error) {
+      res.send(docs[0]);
+    } else {
+      return res.status(400).json({ message: "Something Went Wrong" });
+    }
+  });
+});
 module.exports = router;
