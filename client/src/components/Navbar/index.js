@@ -35,10 +35,9 @@ export default function Index() {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <a className="nav-link" href="/cartdetails">
                   <i class="fas fa-cart-plus"></i>
                   {cartItems.length}
-                  {}
                 </a>
               </li>
             </ul>

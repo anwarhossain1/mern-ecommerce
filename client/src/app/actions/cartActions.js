@@ -3,7 +3,7 @@ export const addToCart = (product, quantity) => (dispatch, getState) => {
     name: product.name,
     _id: product._id,
     price: product.price,
-    countingStock: product.countInStock,
+    countInStock: product.countInStock,
     quantity: quantity,
   };
   dispatch({
@@ -15,4 +15,11 @@ export const addToCart = (product, quantity) => (dispatch, getState) => {
     "cartItems",
     JSON.stringify(getState().addToCartReducer.cartItems)
   ); //local storage ee getState er maddhome addToCartReducer er cartItems er data store kora hoise
+};
+
+export const deleteFromCart = (product) => (dispatch) => {
+  dispatch({
+    type: "DELETE_FROM_CART",
+    payload: product,
+  });
 };

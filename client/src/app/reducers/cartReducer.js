@@ -18,6 +18,14 @@ export const addToCartReducer = (state = { cartItems: [] }, action) => {
         };
       }
 
+    case "DELETE_FROM_CART":
+      return {
+        ...state,
+        cartItems: state.cartItems.filter((item) => {
+          return item._id !== action.payload._id;
+        }),
+      };
+
     default:
       return state;
   }
