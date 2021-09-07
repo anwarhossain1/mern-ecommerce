@@ -5,6 +5,8 @@ import Homepage from "./pages/Homepage/Index";
 import ProductDescription from "./pages/ProductDescription/index";
 import { BrowserRouter, Route } from "react-router-dom";
 import Cartpage from "./pages/CartPage/Index";
+import LoginPage from "./pages/Auth/LoginPage";
+import Registration from "./pages/Auth/Registration";
 function App() {
   return (
     <div className="App">
@@ -14,6 +16,8 @@ function App() {
         <Route path="/" component={Homepage} exact />
         <Route path="/product/:id" component={ProductDescription} />
         <Route path="/cartdetails" component={Cartpage} />
+        <Route path="/login" component={LoginPage} />
+        <Route path="/register" component={Registration} />
       </BrowserRouter>
     </div>
   );
