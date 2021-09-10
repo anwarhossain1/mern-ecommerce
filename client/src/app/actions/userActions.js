@@ -21,3 +21,24 @@ export const registerNewUser = (user) => (dispatch) => {
       console.log(err);
     });
 };
+export const loginUser = (user) => (dispatch) => {
+  dispatch({
+    type: "LOGIN_USER_REQUEST",
+  });
+
+  axios
+    .post("/api/users/login", user)
+    .then((res) => {
+      dispatch({
+        type: "USER_LOGIN_SUCCESS",
+      });
+      console.log(res);
+    })
+    .catch((err) => {
+      dispatch({
+        type: "USER_LOGIN_FAILURE",
+        payload: err,
+      });
+      console.log(err);
+    });
+};

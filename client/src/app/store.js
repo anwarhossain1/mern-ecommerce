@@ -8,13 +8,17 @@ import { createStore, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import { addToCartReducer } from "./reducers/cartReducer";
-import { registerNewUserReducer } from "./reducers/userReducer";
+import {
+  LoginUserReducer,
+  registerNewUserReducer,
+} from "./reducers/userReducer";
 
 const finalReducer = combineReducers({
   getAllProductsReducer: getAllProductsReducer,
   getProductByIdReducer: getProductByIdReducer,
   addToCartReducer: addToCartReducer,
   registerNewUserReducer: registerNewUserReducer,
+  LoginUserReducer: LoginUserReducer,
 });
 const cartItems = localStorage.getItem("cartItems")
   ? JSON.parse(localStorage.getItem("cartItems"))
