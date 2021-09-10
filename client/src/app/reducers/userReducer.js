@@ -15,7 +15,7 @@ export const registerNewUserReducer = (state = {}, action) => {
       return {
         ...state,
         loading: true,
-        error: true,
+        error: "User Already Registered",
       };
 
     default:

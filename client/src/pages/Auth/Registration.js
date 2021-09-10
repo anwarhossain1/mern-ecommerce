@@ -16,7 +16,7 @@ const Registration = () => {
       password: password,
     };
     if (password === cpassword) {
-      dispatch(registerNewUser());
+      dispatch(registerNewUser(user));
     } else {
       alert(`password doesn't match`);
     }
