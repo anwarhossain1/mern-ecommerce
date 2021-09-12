@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { logoutUser } from "../../app/actions/userActions";
 
 export default function Index() {
   const dispatch = useDispatch();
@@ -38,7 +39,7 @@ export default function Index() {
                 // </li>
                 <li className="nav-item dropdown ">
                   <a
-                    className="nav-link dropdown-toggle"
+                    className="nav-link dropdown-toggle text-danger"
                     href="#"
                     id="navbarDropdown"
                     role="button"
@@ -64,7 +65,11 @@ export default function Index() {
                     <li>
                       <hr className="dropdown-divider" />
                     </li>
-                    <li>
+                    <li
+                      onClick={() => {
+                        dispatch(logoutUser());
+                      }}
+                    >
                       <a className="dropdown-item">Logout</a>
                     </li>
                   </ul>
