@@ -7,7 +7,7 @@ import { getAllProducts } from "../../app/actions/productActions";
 import { getAllProductsReducer } from "../../app/reducers/productReducer";
 import Spinner from "../../components/Spinner/Index";
 import Error from "../../components/Error/Index";
-
+import Filter from "../../components/Filter/Index";
 export default function Index() {
   //const [products, setProducts] = useState([]);
   const dispatch = useDispatch();
@@ -33,6 +33,7 @@ export default function Index() {
 
   return (
     <div>
+      <Filter />
       <div className="row justify-content-center">
         {loading ? (
           <Spinner />
