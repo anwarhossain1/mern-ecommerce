@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { registerNewUser } from "../../app/actions/userActions";
-
+import Error from "../../components/Error/Index";
+import Success from "../../components/Success/Index";
 const Registration = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -22,11 +23,19 @@ const Registration = () => {
     }
   };
 
+  const registerReducer = useSelector((state) => state.registerNewUserReducer);
+  const { error, success } = registerReducer;
+
   return (
     <div>
       <div className="row justify-content-center">
-        <div className="col-md-5 card mt-5">
+        <div className="col-md-3 card mt-5">
           <h1 className="text-center mt-5">Create An Account</h1>
+          {error && <Error error={error} />}
+          {success && (
+            <Success success="Registraion Completed Successfully. Please Try To Login." />
+          )}
+
           <form onSubmit={registerHandler}>
             <div class="form-group mt-3">
               <input

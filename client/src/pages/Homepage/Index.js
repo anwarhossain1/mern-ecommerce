@@ -5,6 +5,8 @@ import Product from "../../components/Product/index";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProducts } from "../../app/actions/productActions";
 import { getAllProductsReducer } from "../../app/reducers/productReducer";
+import Spinner from "../../components/Spinner/Index";
+import Error from "../../components/Error/Index";
 
 export default function Index() {
   //const [products, setProducts] = useState([]);
@@ -33,9 +35,9 @@ export default function Index() {
     <div>
       <div className="row justify-content-center">
         {loading ? (
-          <h1>Loading...</h1>
+          <Spinner />
         ) : error ? (
-          <h1>"Something went wrong"</h1>
+          <Error error="Something Went Wrong." />
         ) : (
           products.map((product) => {
             return (

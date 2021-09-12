@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../app/actions/userActions";
+import Error from "../../components/Error/Index";
+
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -26,11 +28,16 @@ const LoginPage = () => {
     //   alert(`password doesn't match`);
     // }
   };
+
+  const loginreducer = useSelector((state) => state.LoginUserReducer);
+  const { error, loading } = loginreducer;
   return (
     <div>
       <div className="row justify-content-center">
-        <div className="col-md-5 card mt-5">
+        <div className="col-md-3 card mt-5">
           <h1 className="text-center mt-5">Login</h1>
+
+          {error && <Error error="Invalid Cradentials" />}
           <form onSubmit={loginHandler}>
             <div className="form-group mt-3 mb-3">
               <input

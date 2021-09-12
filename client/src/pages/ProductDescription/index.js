@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../app/actions/cartActions";
 import { getProductById } from "../../app/actions/productActions";
+import Spinner from "../../components/Spinner/Index";
+import Error from "../../components/Error/Index";
 
 export default function Index({ match }) {
   const productId = match.params.id; //match has been used here as a props by which getting the id(this should be exactly what has been given into routes) from the parameters
@@ -23,9 +25,9 @@ export default function Index({ match }) {
   return (
     <div>
       {loading ? (
-        <h1>loading...</h1>
+        <Spinner />
       ) : error ? (
-        <h1>Something went wrong...</h1>
+        <Error error="Something went wrong" />
       ) : (
         <div className="row">
           <div className="col-md-6">

@@ -15,7 +15,7 @@ export default function Index() {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
           <Link to="/" style={{ textDecoration: "none" }}>
-            <a className="navbar-brand" href="#">
+            <a className="navbar-brand" href="/">
               .amarbazarr
             </a>
           </Link>
@@ -70,7 +70,7 @@ export default function Index() {
                         dispatch(logoutUser());
                       }}
                     >
-                      <a className="dropdown-item">Logout</a>
+                      <span className="dropdown-item">Logout</span>
                     </li>
                   </ul>
                 </li>
