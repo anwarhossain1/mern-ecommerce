@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -6,6 +6,7 @@ export default function Index() {
   const dispatch = useDispatch();
   const addtocartreducer = useSelector((state) => state.addToCartReducer);
   const { cartItems } = addtocartreducer;
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">

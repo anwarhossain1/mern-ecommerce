@@ -12,6 +12,7 @@ import {
   LoginUserReducer,
   registerNewUserReducer,
 } from "./reducers/userReducer";
+import { json } from "body-parser";
 
 const finalReducer = combineReducers({
   getAllProductsReducer: getAllProductsReducer,
@@ -23,9 +24,17 @@ const finalReducer = combineReducers({
 const cartItems = localStorage.getItem("cartItems")
   ? JSON.parse(localStorage.getItem("cartItems"))
   : [];
+
+const currentUser = localStorage.getItem("currentUser")
+  ? JSON.parse(localStorage.getItem("currentUser"))
+  : null; // setting the current user from taking the data of current user from localstorage
+
 const initialState = {
   addToCartReducer: {
     cartItems: cartItems,
+  },
+  LoginUserReducer: {
+    currentUser: currentUser,
   },
 };
 const composeEnhancers = composeWithDevTools({

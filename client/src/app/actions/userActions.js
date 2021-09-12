@@ -32,6 +32,8 @@ export const loginUser = (user) => (dispatch) => {
       dispatch({
         type: "USER_LOGIN_SUCCESS",
       });
+      localStorage.setItem("currentUser", JSON.stringify(res.data));
+      window.location.href = "/";
       console.log(res);
     })
     .catch((err) => {

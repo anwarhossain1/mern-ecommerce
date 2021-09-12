@@ -32,7 +32,12 @@ router.post("/login", (req, res) => {
     { email: req.body.email, password: req.body.password },
     (err, docs) => {
       if (docs.length > 0) {
-        res.send("User Login Successful");
+        const user = {
+          name: docs[0].name,
+          _id: docs[0]._id,
+          email: docs[0].email,
+        };
+        res.send(user);
       } else {
         return res.status(400).json({ message: "Invalid Cradentials" });
       }
