@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, deleteFromCart } from "../../app/actions/cartActions";
-
+import Checkout from "../../components/CheckOut/Index";
 const Index = () => {
   const cartreducerstate = useSelector((state) => state.addToCartReducer);
   const dispatch = useDispatch();
@@ -62,9 +62,7 @@ const Index = () => {
           <hr />
           <div>
             <h2>Sub Total:- ৳ {subtotal}/-</h2>
-            <button className="btn btn-dark" style={{ width: "200px" }}>
-              Pay Now
-            </button>
+            <Checkout amount={subtotal} />
           </div>
         </div>
       </div>

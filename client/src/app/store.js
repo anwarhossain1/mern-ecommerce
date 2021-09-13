@@ -12,7 +12,9 @@ import {
   LoginUserReducer,
   registerNewUserReducer,
 } from "./reducers/userReducer";
+
 import { json } from "body-parser";
+import { placeOrderReducer } from "./reducers/orderReducer";
 
 const finalReducer = combineReducers({
   getAllProductsReducer: getAllProductsReducer,
@@ -20,6 +22,7 @@ const finalReducer = combineReducers({
   addToCartReducer: addToCartReducer,
   registerNewUserReducer: registerNewUserReducer,
   LoginUserReducer: LoginUserReducer,
+  placeOrderReducer: placeOrderReducer,
 });
 const cartItems = localStorage.getItem("cartItems")
   ? JSON.parse(localStorage.getItem("cartItems"))
