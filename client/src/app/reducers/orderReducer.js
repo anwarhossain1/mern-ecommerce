@@ -9,13 +9,15 @@ export const placeOrderReducer = (state = {}, action) => {
       return {
         ...state,
         loading: false,
-        error: true,
+        error: false,
+        success: true,
       };
     case "PLACE_ORDER_FAILED":
       return {
         ...state,
         loading: false,
         error: true,
+        success: false,
       };
     default:
       return { state };

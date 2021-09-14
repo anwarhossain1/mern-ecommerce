@@ -17,9 +17,13 @@ export const addToCart = (product, quantity) => (dispatch, getState) => {
   ); //local storage ee getState er maddhome addToCartReducer er cartItems er data store kora hoise
 };
 
-export const deleteFromCart = (product) => (dispatch) => {
+export const deleteFromCart = (product) => (dispatch, getState) => {
   dispatch({
     type: "DELETE_FROM_CART",
     payload: product,
   });
+  localStorage.setItem(
+    "cartItems",
+    JSON.stringify(getState().addToCartReducer.cartItems)
+  ); //updating localstorage after deleting items from cart
 };

@@ -1,15 +1,26 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import StripeCheckout from "react-stripe-checkout";
 import { placeOrder } from "../../app/actions/orderActions";
+import { placeOrderReducer } from "../../app/reducers/orderReducer";
+import Loader from "../../components/Spinner/Index";
+import Success from "../../components/Success/Index";
+import Error from "../../components/Error/Index";
 const Index = ({ amount }) => {
   const dispatch = useDispatch();
+
   const tokenHandler = (token) => {
     console.log(token);
     dispatch(placeOrder(token, amount));
   };
+  const orderState = useSelector((state) => state.placeOrderReducer);
+  const { loading, error, success } = orderState;
+
   return (
     <div>
+      {loading && <Loader />}
+      {success && <Success success="Order Has Been placed Successfully." />}
+      {error && <Error error="Something Went Wrong. Please Try Again." />}
       <StripeCheckout
         token={tokenHandler}
         amount={amount * 100}
