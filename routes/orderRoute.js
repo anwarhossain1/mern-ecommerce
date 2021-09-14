@@ -4,9 +4,10 @@ const stripe = require("stripe")(
   "sk_test_51Hx5XkF3TEUNtEMpIiz3qr7cMZ3ZQ14UiVpTS4IsUIEeuwhnY7OaRSSr5115LcFNdjYpAYVKpjtEHQAyS99okSS700wet0jcld"
 );
 const { v4: uuidv4 } = require("uuid");
+const Order = require("../models/orderModel");
 
 router.post("/placeorder", async (req, res) => {
-  const { token, cartItems, currentUser, subtotal } = req.body;
+  const { token, modCartItems, currentUser, subtotal } = req.body;
 
   //this is for storing coustomers data into stripe website
   const customer = await stripe.customers.create({
@@ -26,7 +27,28 @@ router.post("/placeorder", async (req, res) => {
   );
 
   if (payment) {
-    res.send("Payment Successful");
+    const order = new Order({
+      userid: currentUser._id,
+      name: currentUser.name,
+      email: currentUser.email,
+      orderItems: modCartItems,
+      shippingAddress: {
+        address: token.card.address_line1,
+        city: token.card.address_city,
+        postalCode: token.card.address_zip,
+        country: token.card.address_country,
+      },
+      orderAmount: subtotal,
+      transactionId: payment.source.id, //collected from stripe backend
+      isDelivered: false,
+    });
+    order.save((err) => {
+      if (err) {
+        return res.status(400).json({ message: "Something went wrong" });
+      } else {
+        res.send("Payment with order Successfully added to the database");
+      }
+    });
   } else {
     return res.status(400).json({ message: "Payment failed" });
   }
