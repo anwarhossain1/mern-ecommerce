@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getOrdersByUserId } from "../../app/actions/orderActions";
+import { Link } from "react-router-dom";
 const Index = () => {
   const dispatch = useDispatch();
   const currentUsersOrderFromState = useSelector(
@@ -35,8 +36,13 @@ const Index = () => {
               {orders &&
                 orders.map((order) => {
                   return (
-                    <tr>
+                    <tr
+                      onClick={() =>
+                        (window.location = `/ordersdescription/${order._id}`)
+                      }
+                    >
                       <td>{order._id}</td>
+
                       <td>{order.orderAmount}</td>
                       <td>{order.createdAt.substring(0, 10)}</td>
                       <td>{order.transactionId}</td>

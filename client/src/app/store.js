@@ -15,6 +15,7 @@ import {
 
 import { json } from "body-parser";
 import {
+  getOrderByIdReducer,
   getOrdersByUserIdReducer,
   placeOrderReducer,
 } from "./reducers/orderReducer";
@@ -27,6 +28,7 @@ const finalReducer = combineReducers({
   LoginUserReducer: LoginUserReducer,
   placeOrderReducer: placeOrderReducer,
   getOrdersByUserIdReducer: getOrdersByUserIdReducer,
+  getOrderByIdReducer: getOrderByIdReducer,
 });
 const cartItems = localStorage.getItem("cartItems")
   ? JSON.parse(localStorage.getItem("cartItems"))

@@ -8,7 +8,7 @@ import Cartpage from "./pages/CartPage/Index";
 import LoginPage from "./pages/Auth/LoginPage";
 import Registration from "./pages/Auth/Registration";
 import Orders from "./pages/Orders/Index";
-
+import OrdersDescription from "./pages/OrdersDescription/Index";
 function App() {
   return (
     <div className="App">
@@ -21,6 +21,10 @@ function App() {
         <Route path="/login" component={LoginPage} />
         <Route path="/register" component={Registration} />
         <Route path="/orders" component={Orders} />
+        <Route
+          path="/ordersdescription/:orderid"
+          component={OrdersDescription}
+        />
       </BrowserRouter>
     </div>
   );

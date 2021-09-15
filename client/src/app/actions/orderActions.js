@@ -40,6 +40,7 @@ export const placeOrder = (token, subtotal) => (dispatch, getState) => {
       dispatch({
         type: "PLACE_ORDER_FAILED",
       });
+      console.log(err);
     });
 };
 
@@ -61,6 +62,27 @@ export const getOrdersByUserId = () => (dispatch, getState) => {
     .catch((error) => {
       dispatch({
         type: "GET_ORDERSBYUSERID_FAILED",
+        payload: error,
+      });
+    });
+};
+
+export const getOrderById = (orderid) => (dispatch) => {
+  dispatch({
+    type: "GET_ORDERBYID_REQUEST",
+  });
+  axios
+    .post("/api/orders/getorderbyid", { orderid: orderid })
+    .then((res) => {
+      dispatch({
+        type: "GET_ORDERBYID_SUCCESS",
+        payload: res.data,
+      });
+      console.log(res.data);
+    })
+    .catch((error) => {
+      dispatch({
+        type: "GET_ORDERBYID_FAILED",
         payload: error,
       });
     });
