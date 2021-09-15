@@ -42,3 +42,26 @@ export const placeOrder = (token, subtotal) => (dispatch, getState) => {
       });
     });
 };
+
+export const getOrdersByUserId = () => (dispatch, getState) => {
+  const userid = getState().LoginUserReducer.currentUser._id;
+
+  dispatch({
+    type: "GET_ORDERSBYUSERID_REQUEST",
+  });
+  axios
+    .post("/api/orders/getordersbyuserid", { userid: userid })
+    .then((res) => {
+      dispatch({
+        type: "GET_ORDERSBYUSERID_SUCCESS",
+        payload: res.data,
+      });
+      console.log(res.data);
+    })
+    .catch((error) => {
+      dispatch({
+        type: "GET_ORDERSBYUSERID_FAILED",
+        payload: error,
+      });
+    });
+};
