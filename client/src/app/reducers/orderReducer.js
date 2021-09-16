@@ -51,7 +51,7 @@ export const getOrdersByUserIdReducer = (state = {}, action) => {
 
 export const getOrderByIdReducer = (state = {}, action) => {
   switch (action.type) {
-    case "GET_ORDERSBYUSERID_REQUEST":
+    case "GET_ORDERBYID_REQUEST":
       return {
         ...state,
         loading: true,

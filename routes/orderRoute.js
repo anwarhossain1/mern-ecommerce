@@ -72,13 +72,11 @@ router.post("/getorderbyid", (req, res) => {
   const orderid = req.body.orderid;
   Order.find({ _id: orderid }, (err, docs) => {
     if (err) {
-      return res
-        .status(400)
-        .json({
-          message: "Something went wrong into finding user item into database",
-        });
+      return res.status(400).json({
+        message: "Something went wrong into finding user item into database",
+      });
     } else {
-      res.send(docs);
+      res.send(docs[0]);
     }
   });
 });

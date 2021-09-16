@@ -14,7 +14,7 @@ const Index = () => {
     } else {
       window.location.href = "/login";
     }
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>
