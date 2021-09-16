@@ -92,3 +92,25 @@ export const filterProducts = (search, sort, category) => (dispatch) => {
       });
     });
 };
+
+export const addProductReview = (review, productid) => (dispatch, getState) => {
+  dispatch({
+    type: "ADD_PRODUCTREVIEW_REQUEST",
+  });
+
+  const currentUser = getState().LoginUserReducer.currentUser;
+
+  axios
+    .post("/api/products/addreview", { review, productid, currentUser })
+    .then((res) => {
+      console.log(res);
+      dispatch({
+        type: "ADD_PRODUCTREVIEW_SUCCESS",
+      });
+    })
+    .catch((err) => {
+      dispatch({
+        type: "ADD_PRODUCTREVIEW_FAILED",
+      });
+    });
+};

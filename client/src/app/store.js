@@ -1,4 +1,5 @@
 import {
+  addProductReviewReducer,
   getAllProductsReducer,
   getProductByIdReducer,
 } from "./reducers/productReducer";
@@ -29,7 +30,9 @@ const finalReducer = combineReducers({
   placeOrderReducer: placeOrderReducer,
   getOrdersByUserIdReducer: getOrdersByUserIdReducer,
   getOrderByIdReducer: getOrderByIdReducer,
+  addProductReviewReducer: addProductReviewReducer,
 });
+
 const cartItems = localStorage.getItem("cartItems")
   ? JSON.parse(localStorage.getItem("cartItems"))
   : [];

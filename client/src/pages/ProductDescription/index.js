@@ -4,7 +4,7 @@ import { addToCart } from "../../app/actions/cartActions";
 import { getProductById } from "../../app/actions/productActions";
 import Spinner from "../../components/Spinner/Index";
 import Error from "../../components/Error/Index";
-
+import Review from "../../components/Review/Index";
 export default function Index({ match }) {
   const productId = match.params.id; //match has been used here as a props by which getting the id(this should be exactly what has been given into routes) from the parameters
   //const product = products.find((product) => product.id == productId);
@@ -55,6 +55,8 @@ export default function Index({ match }) {
               <button className="btn btn-dark" onClick={cartHandler}>
                 Add To Cart
               </button>
+              <hr />
+              <Review product={product} />
             </div>
           </div>
         </div>

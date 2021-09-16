@@ -21,4 +21,33 @@ router.post("/getproductbyid", (req, res) => {
     }
   });
 });
+
+router.post("/addreview", async (req, res) => {
+  const { review, productid, currentUser } = req.body;
+
+  const product = await Product.findById({ _id: productid }); //db te product er id diye ber kora
+
+  const reviewModel = {
+    name: currentUser.name,
+    userid: currentUser._id,
+    rating: review.rating,
+    comment: review.comment,
+  };
+
+  product.reviews.push(reviewModel);
+
+  // updating total rating of the database
+  let rating =
+    product.reviews.reduce((acc, x) => acc + x.rating, 0) /
+    product.reviews.length;
+  product.rating = rating; //setting product average total rating
+
+  product.save((err) => {
+    if (err) {
+      return res.status(400).json({ message: "something went wrong" + err });
+    } else {
+      res.send("Review added successfully");
+    }
+  });
+});
 module.exports = router;
