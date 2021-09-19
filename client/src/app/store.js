@@ -10,6 +10,8 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import { addToCartReducer } from "./reducers/cartReducer";
 import {
+  deleteUserReducer,
+  getAllUsersReducer,
   LoginUserReducer,
   registerNewUserReducer,
   updateUserReducer,
@@ -21,7 +23,6 @@ import {
   getOrdersByUserIdReducer,
   placeOrderReducer,
 } from "./reducers/orderReducer";
-
 const finalReducer = combineReducers({
   getAllProductsReducer: getAllProductsReducer,
   getProductByIdReducer: getProductByIdReducer,
@@ -33,6 +34,8 @@ const finalReducer = combineReducers({
   getOrderByIdReducer: getOrderByIdReducer,
   addProductReviewReducer: addProductReviewReducer,
   updateUserReducer: updateUserReducer,
+  getAllUsersReducer: getAllUsersReducer,
+  deleteUserReducer: deleteUserReducer,
 });
 
 const cartItems = localStorage.getItem("cartItems")

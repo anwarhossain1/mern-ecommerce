@@ -76,3 +76,49 @@ export const updateUserAction = (updatedUser, userid) => (dispatch) => {
       console.log(err);
     });
 };
+
+export const getallusers = () => (dispatch) => {
+  dispatch({
+    type: "GET_ALLUSERS_REQUEST",
+  });
+
+  axios
+    .get("/api/users/getallusers")
+    .then((res) => {
+      dispatch({
+        type: "GET_ALLUSERS_SUCCESS",
+        payload: res.data,
+      });
+    })
+    .catch((err) => {
+      dispatch({
+        type: "GET_ALLUSERS_FAILURE",
+        payload: err,
+      });
+      console.log(err);
+    });
+};
+
+export const deleteUser = (userid) => (dispatch) => {
+  dispatch({
+    type: "DELETE_USER_REQUEST",
+  });
+
+  axios
+    .post("/api/users/deleteuser", { userid })
+    .then((res) => {
+      dispatch({
+        type: "DELETE_USER_SUCCESS",
+        payload: res.data,
+      });
+      alert("User Deleted Successfully");
+      window.location.reload();
+    })
+    .catch((err) => {
+      dispatch({
+        type: "DELETE_USER_FAILURE",
+        payload: err,
+      });
+      console.log(err);
+    });
+};

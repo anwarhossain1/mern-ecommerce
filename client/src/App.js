@@ -10,7 +10,7 @@ import Registration from "./pages/Auth/Registration";
 import Orders from "./pages/Orders/Index";
 import OrdersDescription from "./pages/OrdersDescription/Index";
 import Profile from "./pages/Profile/Index";
-
+import Admin from "./pages/Admin/Index";
 function App() {
   return (
     <div className="App">
@@ -28,6 +28,7 @@ function App() {
           component={OrdersDescription}
         />
         <Route path="/profile" component={Profile} />
+        <Route path="/admin" component={Admin} />
       </BrowserRouter>
     </div>
   );

@@ -45,3 +45,15 @@ h1 {
 .carousel-item {
   text-align: center;
 }
+
+.nav {
+  background-color: brown !important;
+  height: 50px !important;
+}
+
+.nav li {
+  margin-top: 10px !important;
+  margin-right: 20px !important;
+  display: inline !important;
+  text-decoration: none;
+}
