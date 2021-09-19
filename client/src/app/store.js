@@ -12,6 +12,7 @@ import { addToCartReducer } from "./reducers/cartReducer";
 import {
   LoginUserReducer,
   registerNewUserReducer,
+  updateUserReducer,
 } from "./reducers/userReducer";
 
 import { json } from "body-parser";
@@ -31,6 +32,7 @@ const finalReducer = combineReducers({
   getOrdersByUserIdReducer: getOrdersByUserIdReducer,
   getOrderByIdReducer: getOrderByIdReducer,
   addProductReviewReducer: addProductReviewReducer,
+  updateUserReducer: updateUserReducer,
 });
 
 const cartItems = localStorage.getItem("cartItems")

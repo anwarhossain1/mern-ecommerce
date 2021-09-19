@@ -107,6 +107,7 @@ export const addProductReview = (review, productid) => (dispatch, getState) => {
       dispatch({
         type: "ADD_PRODUCTREVIEW_SUCCESS",
       });
+      window.location.reload();
     })
     .catch((err) => {
       dispatch({

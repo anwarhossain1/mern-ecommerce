@@ -31,3 +31,17 @@ h1 {
 .desImage {
   height: 400px !important;
 }
+.carousel {
+  height: 500px;
+}
+
+.carousel-item,
+.carousel-inner,
+.carousel-inner img {
+  height: 500px;
+  width: auto;
+}
+
+.carousel-item {
+  text-align: center;
+}

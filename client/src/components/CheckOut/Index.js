@@ -9,9 +9,17 @@ import Error from "../../components/Error/Index";
 const Index = ({ amount }) => {
   const dispatch = useDispatch();
 
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
   const tokenHandler = (token) => {
     console.log(token);
     dispatch(placeOrder(token, amount));
+  };
+  const userhandler = () => {
+    if (!currentUser) {
+      alert("You Need To Login For Giving Payments");
+      window.location.href = "/login";
+    }
   };
   const orderState = useSelector((state) => state.placeOrderReducer);
   const { loading, error, success } = orderState;
@@ -28,7 +36,11 @@ const Index = ({ amount }) => {
         shippingAddress
         stripeKey="pk_test_51Hx5XkF3TEUNtEMpJRoHZqSWrc1Wf5wJ95U73LZ6Hdy2nkWJ5j7GFuKOBkPeXOuLMk3ElgdyAQ7hq1RxVtUpML2700SNlmJHt2"
       >
-        <button className="btn btn-dark" style={{ width: "200px" }}>
+        <button
+          className="btn btn-dark"
+          style={{ width: "200px" }}
+          onClick={userhandler}
+        >
           Pay Now
         </button>
       </StripeCheckout>

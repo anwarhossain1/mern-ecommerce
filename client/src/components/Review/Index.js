@@ -9,22 +9,27 @@ const Index = ({ product }) => {
 
   const sendReview = () => {
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-    let alreadyReviewed;
-    for (let i = 0; i < product.reviews.length; i++) {
-      if (product.reviews[i].userid === currentUser._id) {
-        alreadyReviewed = true;
+    if (currentUser) {
+      let alreadyReviewed;
+      for (let i = 0; i < product.reviews.length; i++) {
+        if (product.reviews[i].userid === currentUser._id) {
+          alreadyReviewed = true;
+        }
       }
-    }
-    if (alreadyReviewed) {
-      alert("You Have Already Reviewed This Product.");
-    } else {
-      const review = {
-        rating: rating,
-        comment: comment,
-      };
+      if (alreadyReviewed) {
+        alert("You Have Already Reviewed This Product.");
+      } else {
+        const review = {
+          rating: rating,
+          comment: comment,
+        };
 
-      dispatch(addProductReview(review, product._id));
-      alert("Your Review Has Been Submitted.");
+        dispatch(addProductReview(review, product._id));
+        alert("Your Review Has Been Submitted.");
+      }
+    } else {
+      alert("Please Login For Giving Reviews");
+      window.location.href = "/login";
     }
   };
   return (

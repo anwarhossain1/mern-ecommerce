@@ -8,6 +8,8 @@ import { getAllProductsReducer } from "../../app/reducers/productReducer";
 import Spinner from "../../components/Spinner/Index";
 import Error from "../../components/Error/Index";
 import Filter from "../../components/Filter/Index";
+import Carousel from "../../components/Carousel/Index";
+
 export default function Index() {
   //const [products, setProducts] = useState([]);
   const dispatch = useDispatch();
@@ -40,13 +42,16 @@ export default function Index() {
         ) : error ? (
           <Error error="Something Went Wrong." />
         ) : (
-          products.map((product) => {
-            return (
-              <div className="col-md-3 m-5 p-2 card" key={product._id}>
-                <Product product={product} />;
-              </div>
-            );
-          })
+          <>
+            {/* <Carousel /> */}
+            {products.map((product) => {
+              return (
+                <div className="col-md-3 m-5 p-2 card" key={product._id}>
+                  <Product product={product} />;
+                </div>
+              );
+            })}
+          </>
         )}
       </div>
     </div>

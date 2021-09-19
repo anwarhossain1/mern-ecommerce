@@ -45,4 +45,23 @@ router.post("/login", (req, res) => {
   );
 });
 
+router.post("/update", (req, res) => {
+  const { updatedUser, userid } = req.body;
+  User.findByIdAndUpdate(
+    { _id: userid },
+    {
+      name: updatedUser.name,
+      email: updatedUser.email,
+      password: updatedUser.password,
+    },
+    (err) => {
+      if (!err) {
+        res.send("User Profile Updated Successfully");
+      } else {
+        return res.status(400).json({ message: "Invalid Cradentials" });
+      }
+    }
+  );
+});
+
 module.exports = router;
