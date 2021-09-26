@@ -115,3 +115,24 @@ export const addProductReview = (review, productid) => (dispatch, getState) => {
       });
     });
 };
+
+export const deleteProduct = (productid) => (dispatch, getState) => {
+  dispatch({
+    type: "PRODUCT_DELETE_REQUEST",
+  });
+
+  axios
+    .post("/api/products/deleteproduct", { productid })
+    .then((res) => {
+      console.log(res);
+      dispatch({
+        type: "DELETE_PRODUCT_SUCCESS",
+      });
+      alert("Product Has Been Deleted Successfully");
+    })
+    .catch((err) => {
+      dispatch({
+        type: "DELETE_PRODUCT_FAILED",
+      });
+    });
+};

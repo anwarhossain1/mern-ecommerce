@@ -11,7 +11,7 @@ const Index = () => {
   }, []);
   return (
     <div>
-      <h1>Users List</h1>
+      <h1 className="text-center font-weight-bold display-5">Users List</h1>
       <table className="table table-bordered">
         <thead>
           <tr>
