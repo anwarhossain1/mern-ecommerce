@@ -81,4 +81,15 @@ router.post("/getorderbyid", (req, res) => {
   });
 });
 
+router.get("/getallorders", (req, res) => {
+  Order.find({}, (err, docs) => {
+    if (err) {
+      return res.status(400).json({
+        message: "Something went wrong",
+      });
+    } else {
+      res.send(docs);
+    }
+  });
+});
 module.exports = router;

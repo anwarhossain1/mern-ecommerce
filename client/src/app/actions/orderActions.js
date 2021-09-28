@@ -87,3 +87,24 @@ export const getOrderById = (orderid) => (dispatch) => {
       });
     });
 };
+
+export const getAllOrders = () => (dispatch) => {
+  dispatch({
+    type: "GET_ALLORDERS_REQUEST",
+  });
+  axios
+    .get("/api/orders/getallorders")
+    .then((res) => {
+      dispatch({
+        type: "GET_ALLORDERS_SUCCESS",
+        payload: res.data,
+      });
+      console.log(res.data);
+    })
+    .catch((error) => {
+      dispatch({
+        type: "GET_ALLORDERS_FAILED",
+        payload: error,
+      });
+    });
+};
