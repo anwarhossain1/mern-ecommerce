@@ -159,3 +159,23 @@ export const addNewProduct = (product) => (dispatch) => {
       });
     });
 };
+
+export const updateProductAction = (updateproduct, productid) => (dispatch) => {
+  dispatch({
+    type: "PRODUCT_UPDATE_REQUEST",
+  });
+  axios
+    .post("/api/products/updateproduct", { updateproduct, productid })
+    .then((res) => {
+      console.log(res);
+      dispatch({
+        type: "UPDATE_PRODUCT_SUCCESS",
+      });
+      alert("Product Has Been Updated Successfully");
+    })
+    .catch((err) => {
+      dispatch({
+        type: "UPDATE_PRODUCT_FAILED",
+      });
+    });
+};

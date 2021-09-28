@@ -81,4 +81,26 @@ router.post("/addnewproduct", (req, res) => {
     }
   });
 });
+
+router.post("/updateproduct", (req, res) => {
+  console.log(req.body.productid);
+  Product.findByIdAndUpdate(
+    req.body.productid,
+    {
+      name: req.body.updateproduct.name,
+      price: req.body.updateproduct.price,
+      category: req.body.updateproduct.category,
+      description: req.body.updateproduct.description,
+      countinStock: req.body.updateproduct.countInStock,
+      image: req.body.updateproduct.image,
+    },
+    (err) => {
+      if (err) {
+        return res.status(400).json({ message: "something went wrong" + err });
+      } else {
+        res.send("Product updated successfully");
+      }
+    }
+  );
+});
 module.exports = router;

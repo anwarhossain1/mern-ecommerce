@@ -108,3 +108,27 @@ export const addNewProductReducer = (state = {}, action) => {
       return state;
   }
 };
+
+export const updateProductReducer = (state = {}, action) => {
+  switch (action.type) {
+    case "PRODUCT_UPDATE_REQUEST":
+      return {
+        ...state,
+        loading: true,
+      };
+    case "UPDATE_PRODUCT_SUCCESS":
+      return {
+        ...state,
+        loading: false,
+        success: true,
+      };
+    case "UPDATE_PRODUCT_FAILED":
+      return {
+        ...state,
+        loading: true,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};

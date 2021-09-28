@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   deleteProduct,
   getAllProducts,
@@ -40,6 +41,15 @@ const Index = () => {
                   <td>{product.countInStock}</td>
 
                   <td>
+                    <Link to={`/admin/updateproduct/${product._id}`}>
+                      <i
+                        style={{ marginRight: "5px" }}
+                        className="fas fa-edit"
+                        onClick={() => {
+                          //dispatch(deleteProduct(product._id));
+                        }}
+                      ></i>
+                    </Link>
                     <i
                       class="far fa-trash-alt"
                       onClick={() => {

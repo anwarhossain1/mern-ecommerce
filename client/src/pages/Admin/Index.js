@@ -5,6 +5,7 @@ import AddNewProduct from "./AddNewProduct/Index";
 import OrderList from "./OrderList/Index";
 import ProductList from "./ProductList/Index";
 import UsersList from "./UsersList/Index";
+import UpdateProduct from "./UpdateProduct/Index";
 const Index = () => {
   return (
     <div>
@@ -50,6 +51,10 @@ const Index = () => {
               <Route path="/admin/productlist" component={ProductList} />
               <Route path="/admin/orderlist" component={OrderList} />
               <Route path="/admin/addnewproduct" component={AddNewProduct} />
+              <Route
+                path="/admin/updateproduct/:id"
+                component={UpdateProduct}
+              />
             </Switch>
           </div>
         </div>
