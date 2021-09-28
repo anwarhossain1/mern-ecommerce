@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getAllProducts } from "../../../app/actions/productActions";
+import {
+  deleteProduct,
+  getAllProducts,
+} from "../../../app/actions/productActions";
+
 const Index = () => {
   const dispatch = useDispatch();
   const getAllProductsState = useSelector(
@@ -39,7 +43,7 @@ const Index = () => {
                     <i
                       class="far fa-trash-alt"
                       onClick={() => {
-                        //dispatch(deleteProduct(use._id));
+                        dispatch(deleteProduct(product._id));
                       }}
                     ></i>
                   </td>

@@ -1,5 +1,6 @@
 import {
   addProductReviewReducer,
+  deleteProductReducer,
   getAllProductsReducer,
   getProductByIdReducer,
 } from "./reducers/productReducer";

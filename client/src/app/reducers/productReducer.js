@@ -60,3 +60,27 @@ export const addProductReviewReducer = (state = {}, action) => {
       return state;
   }
 };
+
+export const deleteProductReducer = (state = {}, action) => {
+  switch (action.type) {
+    case "PRODUCT_DELETE_REQUEST":
+      return {
+        ...state,
+        loading: true,
+      };
+    case "DELETE_PRODUCT_SUCCESS":
+      return {
+        ...state,
+        loading: false,
+        success: true,
+      };
+    case "DELETE_PRODUCT_FAILED":
+      return {
+        ...state,
+        loading: true,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};

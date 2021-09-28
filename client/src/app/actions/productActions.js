@@ -129,6 +129,7 @@ export const deleteProduct = (productid) => (dispatch, getState) => {
         type: "DELETE_PRODUCT_SUCCESS",
       });
       alert("Product Has Been Deleted Successfully");
+      window.location.reload();
     })
     .catch((err) => {
       dispatch({
