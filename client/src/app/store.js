@@ -1,4 +1,5 @@
 import {
+  addNewProductReducer,
   addProductReviewReducer,
   deleteProductReducer,
   getAllProductsReducer,

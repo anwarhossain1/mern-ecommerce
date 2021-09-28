@@ -116,7 +116,7 @@ export const addProductReview = (review, productid) => (dispatch, getState) => {
     });
 };
 
-export const deleteProduct = (productid) => (dispatch, getState) => {
+export const deleteProduct = (productid) => (dispatch) => {
   dispatch({
     type: "PRODUCT_DELETE_REQUEST",
   });
@@ -134,6 +134,28 @@ export const deleteProduct = (productid) => (dispatch, getState) => {
     .catch((err) => {
       dispatch({
         type: "DELETE_PRODUCT_FAILED",
+      });
+    });
+};
+
+export const addNewProduct = (product) => (dispatch) => {
+  dispatch({
+    type: "PRODUCT_ADD_REQUEST",
+  });
+
+  axios
+    .post("/api/products/addnewproduct", { product })
+    .then((res) => {
+      console.log(res);
+      dispatch({
+        type: "ADD_PRODUCT_SUCCESS",
+      });
+      alert("Product Has Been Added Successfully");
+      window.location.reload();
+    })
+    .catch((err) => {
+      dispatch({
+        type: "ADD_PRODUCT_FAILED",
       });
     });
 };
