@@ -10,8 +10,8 @@ const Index = () => {
     dispatch(getAllOrders());
   }, []);
   return (
-    <div>
-      <table className="table table-bordered">
+    <div className="table-responsive">
+      <table className="m-auto table table-hover">
         <thead>
           <tr>
             <th>Order Id</th>

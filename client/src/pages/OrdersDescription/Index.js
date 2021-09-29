@@ -17,10 +17,10 @@ const Index = ({ match }) => {
     <div>
       {loading && <Loader />}
       {order && (
-        <div>
+        <div style={{ marginLeft: "20px", marginRight: "20px" }}>
           <div className="row justify-content-center">
             <div className="col-md-5 card mt-3 text-start">
-              <h2 className="text-center">Items</h2>
+              <h2 className="text-start fw-bold mt-2">Items</h2>
               <hr />
               {order.orderItems.map((item) => {
                 return (
@@ -37,28 +37,28 @@ const Index = ({ match }) => {
               })}
             </div>
             <div className="col-md-5 card mt-3 text-end">
-              <h2>Order Details</h2>
+              <h2 className="fw-bold mt-2">Order Details</h2>
               <hr />
-              <h3>Order Id : {order._id}</h3>
-              <h3>Total Amount : {order.orderAmount}</h3>
-              <h3>Date of Order : {order.createdAt.substring(0, 10)}</h3>
-              <h3>Transaction ID : {order.transactionId}</h3>
+              <h2>Order Id : {order._id}</h2>
+              <h2>Total Amount : {order.orderAmount}</h2>
+              <h2>Date of Order : {order.createdAt.substring(0, 10)}</h2>
+              <h2>Transaction ID : {order.transactionId}</h2>
               {order.isDelivered ? (
-                <h3>
+                <h2>
                   Status: <span className="text-success">Delivered</span>
-                </h3>
+                </h2>
               ) : (
-                <h3>
+                <h2>
                   Status: <span className="text-warning">Order Placed</span>
-                </h3>
+                </h2>
               )}
               <hr />
-              <h3>Shipping Details</h3>
+              <h2 className="fw-bold">Shipping Details</h2>
               <hr />
-              <h3>Address :{order.shippingAddress.address}</h3>
-              <h3>City : {order.shippingAddress.city}</h3>
-              <h3>Country : {order.shippingAddress.country}</h3>
-              <h3>Postal Code: {order.shippingAddress.postalCode}</h3>
+              <h2>Address :{order.shippingAddress.address}</h2>
+              <h2>City : {order.shippingAddress.city}</h2>
+              <h2>Country : {order.shippingAddress.country}</h2>
+              <h2>Postal Code: {order.shippingAddress.postalCode}</h2>
             </div>
           </div>
         </div>

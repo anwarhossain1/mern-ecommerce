@@ -32,7 +32,7 @@ const LoginPage = () => {
   const loginreducer = useSelector((state) => state.LoginUserReducer);
   const { error, loading } = loginreducer;
   return (
-    <div>
+    <div style={{ marginLeft: "20px", marginRight: "20px" }}>
       <div className="row justify-content-center">
         <div className="col-md-3 card mt-5">
           <h1 className="text-center mt-5">Login</h1>

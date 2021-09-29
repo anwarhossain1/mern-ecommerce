@@ -34,11 +34,11 @@ export default function Index({ match }) {
             <div className="card m-5 p-3">
               <img src={product.image} className="img-fluid m-3 desImage" />
               <h1>{product.name}</h1>
-              <h1>{product.description}</h1>
+              <p>{product.description}</p>
             </div>
           </div>
           <div className="col-md-6">
-            <div className="card m-5 p-3">
+            <div className="card m-5 p-3 shadow p-3 mb-5 bg-white rounded">
               <h1>Price: {product.price}/-</h1>
               <hr />
               <h1>Select Quantity</h1>
@@ -56,7 +56,9 @@ export default function Index({ match }) {
                 Add To Cart
               </button>
               <hr />
-              <Review product={product} />
+              <div className="shadow p-3 mb-5 bg-white rounded mt-3">
+                <Review product={product} />
+              </div>
             </div>
           </div>
         </div>

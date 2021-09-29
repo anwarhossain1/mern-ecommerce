@@ -12,11 +12,11 @@ const Index = () => {
     0
   );
   return (
-    <div>
+    <div style={{ marginLeft: "20px", marginRight: "20px" }}>
       <div className="row mt-5 justify-content-center">
-        <h1 className="text-center mt-3 font-weight-bold">My Cart</h1>
+        <h1 className="text-center mt-3 fs-1 fw-bold">My Cart</h1>
         <div className="col-md-8 mt-5 ">
-          <table className="table table-bordered">
+          <table className="table table-striped table-responsive">
             <thead>
               <tr>
                 <th>Item Choosed</th>
@@ -47,6 +47,7 @@ const Index = () => {
                     <td>{item.quantity * item.price}</td>
                     <td>
                       <i
+                        style={{ color: "red" }}
                         class="far fa-trash-alt"
                         onClick={() => {
                           dispatch(deleteFromCart(item));
@@ -61,7 +62,7 @@ const Index = () => {
           <br />
           <hr />
           <div>
-            <h2>Sub Total:- ৳ {subtotal}/-</h2>
+            <h2 className="text-center">Sub Total:- ৳ {subtotal}/-</h2>
             <Checkout amount={subtotal} />
           </div>
         </div>

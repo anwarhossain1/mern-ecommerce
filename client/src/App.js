@@ -11,24 +11,27 @@ import Orders from "./pages/Orders/Index";
 import OrdersDescription from "./pages/OrdersDescription/Index";
 import Profile from "./pages/Profile/Index";
 import Admin from "./pages/Admin/Index";
+import Footer from "./components/Footer/footer";
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Navbar />
-
-        <Route path="/" component={Homepage} exact />
-        <Route path="/product/:id" component={ProductDescription} />
-        <Route path="/cartdetails" component={Cartpage} />
-        <Route path="/login" component={LoginPage} />
-        <Route path="/register" component={Registration} />
-        <Route path="/orders" component={Orders} />
-        <Route
-          path="/ordersdescription/:orderid"
-          component={OrdersDescription}
-        />
-        <Route path="/profile" component={Profile} />
-        <Route path="/admin" component={Admin} />
+        <div className="content-container">
+          <Route path="/" component={Homepage} exact />
+          <Route path="/product/:id" component={ProductDescription} />
+          <Route path="/cartdetails" component={Cartpage} />
+          <Route path="/login" component={LoginPage} />
+          <Route path="/register" component={Registration} />
+          <Route path="/orders" component={Orders} />
+          <Route
+            path="/ordersdescription/:orderid"
+            component={OrdersDescription}
+          />
+          <Route path="/profile" component={Profile} />
+          <Route path="/admin" component={Admin} />
+        </div>
+        <Footer />
       </BrowserRouter>
     </div>
   );

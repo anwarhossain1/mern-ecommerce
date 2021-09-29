@@ -17,12 +17,12 @@ const Index = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div style={{ marginLeft: "20px", marginRight: "20px" }}>
       <div className="row justify-content-center">
         <div className="col-md-8 mt-5">
-          <h2>All Orders</h2>
+          <h2 className="text-center fw-bold">All Orders</h2>
           <hr />
-          <table className="table table-striped">
+          <table className="table table-hover table-responsive">
             <thead>
               <tr>
                 <th>Order Id</th>

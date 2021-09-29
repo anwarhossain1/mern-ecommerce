@@ -46,6 +46,7 @@ export default function Index() {
                     data-bs-toggle="dropdown"
                     aria-expanded="true"
                   >
+                    <i className="fas fa-user"></i>
                     {loginUser.email}
                   </a>
                   <ul
@@ -70,7 +71,10 @@ export default function Index() {
                         dispatch(logoutUser());
                       }}
                     >
-                      <span className="dropdown-item">Logout</span>
+                      <span className="dropdown-item">
+                        {" "}
+                        <i class="fas fa-sign-out-alt"></i>Logout
+                      </span>
                     </li>
                   </ul>
                 </li>
@@ -81,7 +85,7 @@ export default function Index() {
                     aria-current="page"
                     href="/login"
                   >
-                    Login
+                    <i class="fas fa-sign-in-alt"></i> Login
                   </a>
                 </li>
               )}

@@ -34,7 +34,7 @@ export default function Index() {
   //console.log(products);
 
   return (
-    <div>
+    <div style={{ marginLeft: "20px", marginRight: "20px" }}>
       <Filter />
       <div className="row justify-content-center">
         {loading ? (
@@ -46,7 +46,10 @@ export default function Index() {
             {/* <Carousel /> */}
             {products.map((product) => {
               return (
-                <div className="col-md-3 m-5 p-2 card" key={product._id}>
+                <div
+                  className="col-md-3 m-5 mr-2 p-2 shadow p-3 mb-5 bg-white rounded card"
+                  key={product._id}
+                >
                   <Product product={product} />;
                 </div>
               );
