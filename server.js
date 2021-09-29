@@ -1,11 +1,11 @@
 const express = require("express");
-let cors = require("cors");
-let bodyparser = require("body-parser");
+const cors = require("cors");
+const path = require("path");
+
 const app = express();
 const userRoute = require("./routes/userRouter");
 const orderRoute = require("./routes/orderRoute");
 app.use(cors());
-app.use(bodyparser());
 
 let dbConnection = require("./db");
 const productsRoute = require("./routes/productsRoute");
@@ -14,9 +14,14 @@ const productsRoute = require("./routes/productsRoute");
 app.use("/api/products/", productsRoute);
 app.use("/api/users/", userRoute);
 app.use("/api/orders/", orderRoute);
-app.get("/", (req, res) => {
-  res.send("This is from server");
-});
 
-const port = 5000;
+//to run this app into production environment
+if (process.env.NODE_ENV === "production") {
+  app.use("/", express.static("client/build"));
+  app.get("*", (req, res) => {
+    res.send(path.resolve(__dirname, "client/build/index.html"));
+  });
+}
+
+const port = process.env.PORT || 5000;
 app.listen(port, () => `server running on port ${port}`);
